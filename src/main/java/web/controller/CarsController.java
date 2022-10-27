@@ -9,6 +9,7 @@ import web.service.CarService;
 
 
 @Controller
+@RequestMapping(value = "/car")
 public class CarsController {
 
     private final CarService carservice;
@@ -18,7 +19,7 @@ public class CarsController {
         this.carservice = carservice;
     }
 
-    @RequestMapping(value = "/car")
+    @RequestMapping(value = "")
     public String getCarList(@RequestParam(required = false) Integer count, Model model) {
         model.addAttribute("cars", carservice.getCarList(10));
         return "cars";
